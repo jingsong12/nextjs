@@ -14,6 +14,9 @@ import { Base } from "@/components/common";
 import { useState } from "react";
 
 const Wrapper = styled.div`
+  h2 {
+    text-align: center;
+  }
   .search {
     display: flex;
     justify-content: center;
@@ -43,6 +46,7 @@ export default function Home() {
   if (isError) return <div>Sorry There was an Error</div>;
   return (
     <Wrapper>
+      <h2>Main page</h2>
       <div className="search">
         <div>
           Search/Filter:{" "}

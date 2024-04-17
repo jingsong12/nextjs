@@ -7,6 +7,7 @@ import { getPokemon } from "@/api/data";
 import { baseUrl } from "@/lib/common";
 import { Base } from "@/components/common";
 import Chart from "react-apexcharts";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   > div {
@@ -20,6 +21,9 @@ const Wrapper = styled.div`
     .name {
       padding: 0 10px;
     }
+  }
+  h2 {
+    text-align: center;
   }
 `;
 
@@ -56,13 +60,17 @@ export default function Page({
     <>
       <Navigator />
       <Wrapper>
+        <h2>Pokemon Details</h2>
         <div>Name: {name}</div>
         <div className="category">
           <div>Category/Type:</div>
           {types.map((_) => (
-            <div className="name" key={_.slot}>
-              {_.type.name}
-            </div>
+            <Link
+              key={_.slot}
+              href={_.type.url.split("https://pokeapi.co/api/v2/type")[1]}
+            >
+              <div className="name">{_.type.name}</div>
+            </Link>
           ))}
         </div>
         <div>

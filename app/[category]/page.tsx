@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { category: string } }) {
     queryKey: ["category"],
   });
 
-  const { pokemon } = data ?? {};
+  const { pokemon, name } = data ?? {};
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Sorry There was an Error</div>;
@@ -28,6 +28,7 @@ export default function Page({ params }: { params: { category: string } }) {
   return (
     <>
       <Navigator />
+      <h2 style={{ textAlign: "center" }}>Category: {name}</h2>
       <Wrapper>
         {pokemon.map(({ pokemon }) => (
           <Base
