@@ -1,13 +1,7 @@
 "use client";
 
-import { Navigator } from "@/components/navigator";
-import { data, result } from "@/data";
 import styled from "styled-components";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "@/api/data";
 import { baseUrl } from "@/lib/common";
 import { Base } from "@/components/common";

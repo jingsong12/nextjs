@@ -3,7 +3,7 @@
 import { Navigator } from "@/components/navigator";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
-import { getCategories, getCategoryDetail } from "@/api/data";
+import { getCategoryDetail } from "@/api/data";
 import { baseUrl } from "@/lib/common";
 import { Base } from "@/components/common";
 

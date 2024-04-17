@@ -4,8 +4,6 @@ import { Navigator } from "@/components/navigator";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import { getPokemon } from "@/api/data";
-import { baseUrl } from "@/lib/common";
-import { Base } from "@/components/common";
 import Chart from "react-apexcharts";
 import Link from "next/link";
 
