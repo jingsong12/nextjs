@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { category: string } }) {
     queryKey: ["category"],
   });
 
-  const { items } = data ?? {};
+  const { pokemon } = data ?? {};
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Sorry There was an Error</div>;
@@ -29,11 +29,13 @@ export default function Page({ params }: { params: { category: string } }) {
     <>
       <Navigator />
       <Wrapper>
-        {items.map(({ name, url }) => (
+        {pokemon.map(({ pokemon }) => (
           <Base
-            key={name}
-            name={name}
-            url={"/" + category + "/" + url.split(baseUrl + "/item/")[1]}
+            key={pokemon.name}
+            name={pokemon.name}
+            url={
+              "/" + category + "/" + pokemon.url.split(baseUrl + "/item/")[1]
+            }
           />
         ))}
       </Wrapper>

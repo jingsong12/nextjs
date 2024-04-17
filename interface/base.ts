@@ -16,13 +16,12 @@ export interface ICategoriesRes {
 
 export interface ICategoryDetail {
   id: string;
-  items: ICategory[];
   name: string;
   names: {
     language: IBase;
     name: string;
   };
-  pocket: IBase;
+  pokemon: { pokemon: IBase }[];
 }
 
 interface IEffect_entries {

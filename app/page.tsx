@@ -65,7 +65,7 @@ export default function Home() {
             <Base
               key={name}
               name={name}
-              url={url.split(baseUrl + "/item-category/")[1]}
+              url={url.split(baseUrl + "/type/")[1]}
             />
           ))}
       </div>
