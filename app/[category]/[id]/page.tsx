@@ -9,6 +9,11 @@ import { Base } from "@/components/common";
 import Chart from "react-apexcharts";
 
 const Wrapper = styled.div`
+  > div {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+  }
   .category {
     display: flex;
 
@@ -53,12 +58,16 @@ export default function Page({
       <Wrapper>
         <div>Name: {name}</div>
         <div className="category">
-          <div>Type:</div>
+          <div>Category/Type:</div>
           {types.map((_) => (
             <div className="name" key={_.slot}>
               {_.type.name}
             </div>
           ))}
+        </div>
+        <div>
+          Stats:
+          <Chart options={options} series={series} type="bar" width="500" />
         </div>
         <div>
           Sprites:
@@ -77,16 +86,12 @@ export default function Page({
           <img src={sprites.other.showdown.front_default} />
         </div>
         <div className="category">
-          <div>Ablities:</div>
+          <div>Abilities:</div>
           {abilities.map((_) => (
             <div className="name" key={_.slot}>
               {_.ability.name}
             </div>
           ))}
-        </div>
-        <div>
-          Stats:
-          <Chart options={options} series={series} type="bar" width="500" />
         </div>
       </Wrapper>
     </>

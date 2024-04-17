@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     justify-content: center;
 
     input {
-      margin-left: 20px;
+      margin: 20px;
     }
   }
   .category {
@@ -43,7 +43,6 @@ export default function Home() {
   if (isError) return <div>Sorry There was an Error</div>;
   return (
     <Wrapper>
-      <Navigator />
       <div className="search">
         <div>
           Search/Filter:{" "}

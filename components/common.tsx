@@ -5,11 +5,12 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 20vw;
   height: 20vw;
-  background: 0 #866a6a;
+  background: #29acb6;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  border-radius: 50%;
 `;
 
 export const Base = ({ name, url }: ICategory) => {
