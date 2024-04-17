@@ -11,11 +11,22 @@ import {
 import { getCategories } from "@/api/data";
 import { baseUrl } from "@/lib/common";
 import { Base } from "@/components/common";
+import { useState } from "react";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  .search {
+    display: flex;
+    justify-content: center;
+
+    input {
+      margin-left: 20px;
+    }
+  }
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `;
 
 export default function Home() {
@@ -26,20 +37,38 @@ export default function Home() {
 
   const { results } = data ?? {};
 
+  const [search, setSearch] = useState("");
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Sorry There was an Error</div>;
   return (
-    <>
+    <Wrapper>
       <Navigator />
-      <Wrapper>
-        {results.map(({ name, url }) => (
-          <Base
-            key={name}
-            name={name}
-            url={url.split(baseUrl + "/item-category/")[1]}
+      <div className="search">
+        <div>
+          Search/Filter:{" "}
+          <input
+            value={search}
+            onInput={(e) => setSearch(e.currentTarget.value)}
           />
-        ))}
-      </Wrapper>
-    </>
+        </div>
+      </div>
+      <div className="category">
+        {results
+          .filter(({ name }) => {
+            if (search == "") {
+              return true;
+            }
+            return name.includes(search);
+          })
+          .map(({ name, url }) => (
+            <Base
+              key={name}
+              name={name}
+              url={url.split(baseUrl + "/item-category/")[1]}
+            />
+          ))}
+      </div>
+    </Wrapper>
   );
 }

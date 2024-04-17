@@ -1,5 +1,7 @@
-import { ICategory } from "@/interface/base";
+"use client";
+
 import styled from "styled-components";
+import { useRouter } from "next/navigation";
 
 const Wrapper = styled.div`
   cursor: pointer;
@@ -8,9 +10,10 @@ const Wrapper = styled.div`
 `;
 
 export const Navigator = () => {
+  const router = useRouter();
   return (
     <Wrapper>
-      <h3>{"< "}Back</h3>
+      <h3 onClick={router.back}>{"< "}Back</h3>
     </Wrapper>
   );
 };

@@ -17,7 +17,7 @@ export default function Page({ params }: { params: { category: string } }) {
   const { category } = params;
   const { data, isLoading, isError } = useQuery({
     queryFn: async () => await getCategoryDetail(category),
-    queryKey: ["categoryDetail"],
+    queryKey: ["category"],
   });
 
   const { items } = data ?? {};
