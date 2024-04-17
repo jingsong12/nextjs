@@ -29,22 +29,26 @@ interface IEffect_entries {
   language: IBase;
   short_effect: string;
 }
-export interface IItem {
-  attributes: IBase[];
-  category: ICategory;
-  cost: number;
-  effect_entries: IEffect_entries[];
-  flavor_text_entries: {
-    language: IBase;
-    text: string;
-    version_group: IBase;
-  }[];
-  game_indices: {
-    game_index: number;
-    generation: IBase;
-  }[];
+
+interface IFontDefault {
+  front_default: string;
+}
+export interface IPokemon {
   name: string;
+  abilities: { ability: IBase; slot: number }[];
+  species: IBase;
   sprites: {
-    default: string;
+    front_default: string;
+    other: {
+      home: IFontDefault;
+      "official-artwork": IFontDefault;
+      showdown: IFontDefault;
+    };
   };
+  stats: {
+    base_stat: number;
+    effort: number;
+    stat: IBase;
+  }[];
+  types: { type: IBase; slot: number }[];
 }

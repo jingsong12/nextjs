@@ -34,7 +34,7 @@ export default function Page({ params }: { params: { category: string } }) {
             key={pokemon.name}
             name={pokemon.name}
             url={
-              "/" + category + "/" + pokemon.url.split(baseUrl + "/item/")[1]
+              "/" + category + "/" + pokemon.url.split(baseUrl + "/pokemon/")[1]
             }
           />
         ))}
